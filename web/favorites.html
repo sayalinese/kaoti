@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>收藏 · 考题</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141413'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23FAF9F5' font-family='serif'%3E考%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-seal">考</span>
+        <span class="brand-text">
+          <strong>考题</strong>
+          <span>本地题库</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/">题库</a>
+        <a href="favorites.html" class="active">收藏</a>
+        <a href="settings.html">设置</a>
+      </nav>
+      <span class="topbar-spacer"></span>
+      <a class="btn btn-outline btn-sm topbar-action" href="import.html">导入题库</a>
+    </div>
+  </header>
+
+  <main class="favorites-page">
+    <header class="favorites-head">
+      <div>
+        <p class="eyebrow">Favorites / 收藏</p>
+        <h1>收藏题目</h1>
+        <p class="favorites-meta" id="favorites-meta">载入中…</p>
+      </div>
+      <div class="favorites-head-actions">
+        <button type="button" class="btn btn-primary" id="quiz-favorites" disabled>练习收藏</button>
+      </div>
+    </header>
+
+    <div class="favorites-toolbar">
+      <input type="search" id="search" placeholder="搜索收藏的题目" autocomplete="off">
+      <select id="type-filter" aria-label="题型">
+        <option value="">全部题型</option>
+        <option value="single">单选题</option>
+        <option value="multiple">多选题</option>
+        <option value="tf">判断题</option>
+      </select>
+      <span class="result-meta" id="result-meta"></span>
+    </div>
+    <p class="editor-status" id="page-status"></p>
+
+    <div class="loading-line" id="loading">正在载入收藏…</div>
+    <div class="empty" id="empty-favorites" hidden>
+      <h2>还没有收藏</h2>
+      <p>在题库里点击题目右上角的“收藏”，就会出现在这里。</p>
+      <a class="btn btn-outline" href="/">去题库看看</a>
+    </div>
+
+    <div class="question-list" id="question-list"></div>
+
+    <div class="pagination" id="pagination" hidden>
+      <span id="page-info"></span>
+      <div class="pages">
+        <button type="button" class="btn btn-outline btn-sm" id="prev-page">上一页</button>
+        <button type="button" class="btn btn-outline btn-sm" id="next-page">下一页</button>
+      </div>
+    </div>
+  </main>
+
+  <div id="editor-host"></div>
+  <div id="quiz-host"></div>
+
+  <script src="shared.js"></script>
+  <script src="favorites.js"></script>
+</body>
+</html>

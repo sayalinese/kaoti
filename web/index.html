@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>题库 · 考题</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23141413'/%3E%3Ctext x='16' y='22' font-size='16' text-anchor='middle' fill='%23FAF9F5' font-family='serif'%3E考%3C/text%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">
+        <span class="brand-seal">考</span>
+        <span class="brand-text">
+          <strong>考题</strong>
+          <span>本地题库</span>
+        </span>
+      </a>
+      <nav class="nav">
+        <a href="/" class="active">题库</a>
+        <a href="favorites.html">收藏</a>
+        <a href="settings.html">设置</a>
+      </nav>
+      <span class="topbar-spacer"></span>
+      <a class="btn btn-outline btn-sm topbar-action" href="import.html">导入题库</a>
+    </div>
+  </header>
+
+  <main class="library">
+    <aside class="tree">
+      <div class="tree-header">
+        <p class="eyebrow">科目 / 考题</p>
+        <span class="tree-total" id="tree-total"></span>
+      </div>
+      <div id="tree-body">
+        <p class="tree-empty">载入中…</p>
+      </div>
+      <a class="btn btn-outline btn-sm tree-import" href="import.html">导入 DOCX</a>
+    </aside>
+
+    <section class="library-main">
+      <div class="loading-line" id="loading">正在载入题库…</div>
+
+      <div class="empty" id="empty-library" hidden>
+        <h2>题库还是空的</h2>
+        <p>先导入一份 DOCX 题目，按科目和考题归档。导入前可以逐题核对。</p>
+        <a class="btn btn-primary" href="import.html">导入题库</a>
+      </div>
+
+      <div id="paper-view" hidden>
+        <header class="paper-head">
+          <div>
+            <p class="eyebrow" id="subject-label">科目</p>
+            <h1 id="paper-title">考题</h1>
+            <div class="paper-meta" id="paper-meta"></div>
+          </div>
+          <div class="paper-actions">
+            <button type="button" class="btn btn-primary" id="start-quiz">开始练习</button>
+            <button type="button" class="link-btn" id="delete-paper">删除考题</button>
+          </div>
+        </header>
+
+        <div class="toolbar">
+          <input type="search" id="search" placeholder="搜索题干或选项" autocomplete="off">
+          <select id="type-filter" aria-label="题型">
+            <option value="">全部题型</option>
+            <option value="single">单选题</option>
+            <option value="multiple">多选题</option>
+            <option value="tf">判断题</option>
+          </select>
+          <select id="status-filter" aria-label="状态">
+            <option value="">全部状态</option>
+            <option value="ready">可练习</option>
+            <option value="needs_review">待核对</option>
+          </select>
+          <label class="check">
+            <input type="checkbox" id="favorite-filter"> 只看收藏
+          </label>
+          <span class="result-meta" id="result-meta"></span>
+        </div>
+        <p class="editor-status" id="page-status"></p>
+
+        <div class="question-list" id="question-list"></div>
+
+        <div class="pagination" id="pagination" hidden>
+          <span id="page-info"></span>
+          <div class="pages">
+            <button type="button" class="btn btn-outline btn-sm" id="prev-page">上一页</button>
+            <button type="button" class="btn btn-outline btn-sm" id="next-page">下一页</button>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="editor-host"></div>
+  <div id="quiz-host"></div>
+
+  <script src="shared.js"></script>
+  <script src="library.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+# Local data and secrets
+data/*.db
+data/*.db-*
+data/settings.json
+data/.write-probe
+
+# Python and build output
+__pycache__/
+*.py[cod]
+build/
+dist/
+*.spec
+
+# Local editor and OS files
+.vscode/
+.idea/
+Thumbs.db
+Desktop.ini
